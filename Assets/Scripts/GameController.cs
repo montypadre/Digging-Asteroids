@@ -18,7 +18,7 @@ public class GameController : MonoBehaviour
     public float maxRange = 10f;
     public float minRange = 5f;
     private float height;
-    private float speed = -1f;
+    public float speed = -1f;
 	public float spawnTime = 1f;
     //public float maxScale = 10f;
     //public float minScale = 5f;
