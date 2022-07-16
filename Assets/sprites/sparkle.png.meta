@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e05acd27df6db544fb66afd6b4109812
+guid: 2760540e54d0f974295ac5a51db99cea
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -66,10 +66,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 128
+    maxTextureSize: 32
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -104,13 +104,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ship_0
+      name: sparkle_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 64
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +118,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21847a6ebb996444bbad59522be265e0
-      internalID: 1876272476
+      spriteID: 9b4a5913040842b488a05d3733c90be9
+      internalID: -911403546
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ship_1
+      name: sparkle_1
       rect:
         serializedVersion: 2
-        x: 64
+        x: 8
         y: 0
-        width: 64
-        height: 64
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,8 +139,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0fef6096011d1f34b8c99c03ebda11a9
-      internalID: -289586415
+      spriteID: 5fd3cbc8925e18949ae8a5585f98c6b2
+      internalID: 814495592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sparkle_2
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8165e96e0a4ce0a43ba1c61bb04061b9
+      internalID: 608270596
       vertices: []
       indices: 
       edges: []
@@ -156,8 +177,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ship_0: 1876272476
-      ship_1: -289586415
+      sparkle_1: 814495592
+      sparkle_2: 608270596
+      sparkle_0: -911403546
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

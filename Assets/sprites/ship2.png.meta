@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e05acd27df6db544fb66afd6b4109812
+guid: 827ae160f864e3445807b54f1a2c05aa
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -66,10 +66,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 128
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -104,7 +104,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ship_0
+      name: ship2_0
       rect:
         serializedVersion: 2
         x: 0
@@ -118,14 +118,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21847a6ebb996444bbad59522be265e0
-      internalID: 1876272476
+      spriteID: d30871eeecdbdd64b87d24d1a45c8b26
+      internalID: -2131860566
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ship_1
+      name: ship2_1
       rect:
         serializedVersion: 2
         x: 64
@@ -139,8 +139,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0fef6096011d1f34b8c99c03ebda11a9
-      internalID: -289586415
+      spriteID: 2b0eec9aaa7de2e4eb1564ada702580e
+      internalID: -1951388804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship2_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac596f58d37e26346b2bb4323cdb3288
+      internalID: -930536510
       vertices: []
       indices: 
       edges: []
@@ -156,8 +177,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ship_0: 1876272476
-      ship_1: -289586415
+      ship2_0: -2131860566
+      ship2_2: -930536510
+      ship2_1: -1951388804
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
