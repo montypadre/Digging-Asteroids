@@ -160,7 +160,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.18431373, g: 0.20784314, b: 0.23921569, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -201,7 +201,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -285,23 +285,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8d9fd9d2fb760e4099fe6c080a75e4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 5712849474031854363, guid: ea54e79f93051004e991c9cca9d08d13, type: 3}
-  grid:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  blocks:
-  - {fileID: 5221928216597690105, guid: 1cdc242a20abecb4ea03345eeb47776d, type: 3}
-  - {fileID: 5221928216597690105, guid: 1cdc242a20abecb4ea03345eeb47776d, type: 3}
-  - {fileID: 5221928216597690105, guid: 1cdc242a20abecb4ea03345eeb47776d, type: 3}
-  - {fileID: 5221928216597690105, guid: 1cdc242a20abecb4ea03345eeb47776d, type: 3}
-  - {fileID: 8777448654449181365, guid: 09f607ea4e83c3640ab9a68c83aeb7c1, type: 3}
-  - {fileID: 8777448654449181365, guid: 09f607ea4e83c3640ab9a68c83aeb7c1, type: 3}
-  - {fileID: 6483215647375083810, guid: ad8762372e9894e4eb376539705d04ec, type: 3}
+  player: {fileID: 5712849474031854363, guid: 00c926a56defd3c4da0d62d314a76ce6, type: 3}
+  screenCenter: {x: 0, y: 0, z: 0}
+  rocks:
+  - {fileID: 162481716294319070, guid: 50a3cef23a7119a43964ff5f9c4b11fd, type: 3}
+  - {fileID: 6579079541931880046, guid: ac83986f4921c35438aa4bf492c85c12, type: 3}
+  - {fileID: 4384958188167369630, guid: 649329e38dce14741bd36144dd36f70a, type: 3}
+  - {fileID: 967519367621784044, guid: 52a1db356ce784d45ab0d868a0792d68, type: 3}
+  - {fileID: 1877489875833003644, guid: 46a0d35f16b170440acecc9e9cf841ce, type: 3}
+  rockSpawner: {fileID: 1092538827}
   maxRange: 10
   minRange: 5
+  speed: -1
   spawnTime: 1
+--- !u!1 &1092538827
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1092538828}
+  m_Layer: 0
+  m_Name: RockSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1092538828
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092538827}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.05, y: 6.42, z: -8.160042}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
