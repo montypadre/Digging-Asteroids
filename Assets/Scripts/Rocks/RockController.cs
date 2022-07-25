@@ -5,14 +5,23 @@ using UnityEngine;
 public class RockController : MonoBehaviour
 {
     private Rigidbody rb;
+    public int damage;
+    public float damageCooldown = 0.5f;
+    public float currentTime;
+    public float gravity;
+    //public int health = 100;
+    //private int currentHealth = 0;
+    public bool isChomping;
+    public GameObject[] rocks;
 
-    void Start()
+    public void Start()
     {
         rb = GetComponent<Rigidbody>();
+        //currentHealth = health;
         //rb.AddForce(transform.forward * 100f);
     }
 
-	private void Update()
+	public void Update()
 	{
         Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
 
@@ -34,7 +43,23 @@ public class RockController : MonoBehaviour
         //}
     }
 
-	private void OnBecameInvisible()
+    public virtual void Chomp()
+    {
+        int i = 0;
+        isChomping = true;
+        // Debug.Log("Chomping");
+        while (isChomping)
+		{
+            isChomping = false;
+            // Debug.Log("Instantiating");
+			Instantiate(rocks[i], transform.localPosition, transform.localRotation);
+            i++;
+        }
+
+        GameObject.Destroy(gameObject);
+    }
+
+    private void OnBecameInvisible()
 	{
 		Destroy(gameObject);
 	}

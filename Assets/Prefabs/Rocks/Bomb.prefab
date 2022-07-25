@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 967519367621784034}
   - component: {fileID: 967519367621784035}
   - component: {fileID: 967519367621784039}
-  - component: {fileID: 5215439479822450713}
+  - component: {fileID: 5252153243506116985}
   m_Layer: 0
   m_Name: Bomb
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,7 +107,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 967519367621784044}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.5
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 1
@@ -115,7 +115,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 8
   m_CollisionDetection: 0
---- !u!114 &5215439479822450713
+--- !u!114 &5252153243506116985
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,6 +124,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 967519367621784044}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bea2a57edcdc894ab70785002c1aa49, type: 3}
+  m_Script: {fileID: 11500000, guid: 334dced94a03c6f419ce38c934c56dea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 0
+  damageCooldown: 0.5
+  currentTime: 0
+  gravity: 0
+  isChomping: 0
+  rocks: []

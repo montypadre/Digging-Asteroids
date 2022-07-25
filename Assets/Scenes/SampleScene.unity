@@ -287,16 +287,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 5712849474031854363, guid: 00c926a56defd3c4da0d62d314a76ce6, type: 3}
   screenCenter: {x: 0, y: 0, z: 0}
-  rocks:
-  - {fileID: 162481716294319070, guid: 50a3cef23a7119a43964ff5f9c4b11fd, type: 3}
-  - {fileID: 6579079541931880046, guid: ac83986f4921c35438aa4bf492c85c12, type: 3}
-  - {fileID: 4384958188167369630, guid: 649329e38dce14741bd36144dd36f70a, type: 3}
-  - {fileID: 967519367621784044, guid: 52a1db356ce784d45ab0d868a0792d68, type: 3}
-  - {fileID: 1877489875833003644, guid: 46a0d35f16b170440acecc9e9cf841ce, type: 3}
+  bigRock: {fileID: 162481716294319070, guid: 50a3cef23a7119a43964ff5f9c4b11fd, type: 3}
   rockSpawner: {fileID: 1092538827}
-  maxRange: 10
-  minRange: 5
-  speed: -1
   spawnTime: 1
 --- !u!1 &1092538827
 GameObject:

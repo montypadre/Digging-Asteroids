@@ -10,8 +10,8 @@ public class PlayerController : MonoBehaviour
     public float cooldown = 0.3f;
     public float time = 0f;
     public float bounce;
+    public float force = 5;
     private Rigidbody rb;
-    private bool isBouncing = false;
 
 	void Start()
 	{
@@ -24,19 +24,19 @@ public class PlayerController : MonoBehaviour
 
         if (screenPos.x < 0)
         {
-            rb.AddForce(Vector2.right * 10, ForceMode.Impulse);
+            rb.AddForce(Vector2.right * force, ForceMode.Impulse);
         }
         else if (screenPos.x > Screen.width)
         {
-            rb.AddForce(Vector2.left * 10, ForceMode.Impulse);
+            rb.AddForce(Vector2.left * force, ForceMode.Impulse);
         }
         else if (screenPos.y > Screen.height)
 		{
-            rb.AddForce(Vector2.down * 10, ForceMode.Impulse);
+            rb.AddForce(Vector2.down * force, ForceMode.Impulse);
         }
         else if (screenPos.y < 0)
 		{
-            rb.AddForce(Vector2.up * 10, ForceMode.Impulse);
+            rb.AddForce(Vector2.up * force, ForceMode.Impulse);
         }
 
         if (time > 0f)
@@ -64,38 +64,38 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void OnTriggerStay(Collider other)
-	{
-        //Debug.Log("Entered Collision");
-		if (Input.GetMouseButton(0))
-		{
-            //Debug.Log("Clicked");
-            // Activate drill
-            Block block = other.gameObject.GetComponent<Block>();
-            Debug.Log(block);
-            if (block != null)
-			{
-                block.DealDamage(damage);
-			}
-        }
-	}
+    //   void OnTriggerStay(Collider other)
+    //{
+    //       //Debug.Log("Entered Collision");
+    //	if (Input.GetMouseButton(0))
+    //	{
+    //           //Debug.Log("Clicked");
+    //           // Activate drill
+    //           Block block = other.gameObject.GetComponent<Block>();
+    //           Debug.Log(block);
+    //           if (block != null)
+    //		{
+    //               block.DealDamage(damage);
+    //		}
+    //       }
+    //}
 
-	void OnCollisionEnter(Collision collision)
-	{
-        Debug.Log("Entered Collision");
-        Debug.Log(collision.gameObject);
-        if (collision.gameObject.name == "Dirt(Clone)" || collision.gameObject.name == "Gold(Clone)" || collision.gameObject.name == "Oil(Clone)")
-		{
-            Debug.Log("gameObject collision");
-            bounce = 100f;
-            rb.AddForce(collision.contacts[0].normal * bounce);
-            isBouncing = true;
-            Invoke("StopBounce", 0.3f);
-		}
-	}
+    //void OnCollisionEnter(Collision collision)
+    //{
+    //       Debug.Log("Entered Collision");
+    //       Debug.Log(collision.gameObject);
+    //       if (collision.gameObject.name == "Dirt(Clone)" || collision.gameObject.name == "Gold(Clone)" || collision.gameObject.name == "Oil(Clone)")
+    //	{
+    //           Debug.Log("gameObject collision");
+    //           bounce = 100f;
+    //           rb.AddForce(collision.contacts[0].normal * bounce);
+    //           isBouncing = true;
+    //           Invoke("StopBounce", 0.3f);
+    //	}
+    //}
 
-    void StopBounce()
-	{
-        isBouncing = false;
-	}
+    //   void StopBounce()
+    //{
+    //       isBouncing = false;
+    //}
 }

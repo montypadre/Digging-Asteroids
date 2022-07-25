@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 6579079541931880040}
   - component: {fileID: 6579079541931880047}
   - component: {fileID: 6579079541931880043}
-  - component: {fileID: 6212485214422267281}
+  - component: {fileID: 3955175539082634614}
   m_Layer: 0
   m_Name: Med Rock
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,7 +107,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6579079541931880046}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.5
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 1
@@ -115,7 +115,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 8
   m_CollisionDetection: 0
---- !u!114 &6212485214422267281
+--- !u!114 &3955175539082634614
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,6 +124,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 6579079541931880046}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bea2a57edcdc894ab70785002c1aa49, type: 3}
+  m_Script: {fileID: 11500000, guid: 6e159ba31f29f9c49bf204a6c91f4805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 20
+  damageCooldown: 0.5
+  currentTime: 0
+  gravity: 0
+  isChomping: 0
+  rocks:
+  - {fileID: 4384958188167369630, guid: 649329e38dce14741bd36144dd36f70a, type: 3}
+  - {fileID: 967519367621784044, guid: 52a1db356ce784d45ab0d868a0792d68, type: 3}
+  - {fileID: 1877489875833003644, guid: 46a0d35f16b170440acecc9e9cf841ce, type: 3}
