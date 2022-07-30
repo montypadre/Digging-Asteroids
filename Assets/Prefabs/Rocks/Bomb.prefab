@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 967519367621784035}
   - component: {fileID: 967519367621784039}
   - component: {fileID: 5252153243506116985}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bomb
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -127,9 +127,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 334dced94a03c6f419ce38c934c56dea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
-  damageCooldown: 0.5
-  currentTime: 0
-  gravity: 0
-  isChomping: 0
-  rocks: []
+  explosion: {fileID: 139366, guid: b185c1a9cf067374586d095111b15bd1, type: 3}
+  controller: {fileID: 8471139427520661901, guid: 5a5dddc86dd61d740a6807d0a717d06c, type: 3}

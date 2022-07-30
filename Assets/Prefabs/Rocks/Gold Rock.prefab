@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1877489875833003645}
   - component: {fileID: 1877489875833003633}
   - component: {fileID: -893030942564185958}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gold Rock
   m_TagString: Enemy
   m_Icon: {fileID: 0}

@@ -5,7 +5,7 @@ using UnityEngine;
 public class RockController : MonoBehaviour
 {
     private Rigidbody rb;
-    public int damage;
+    //public int damage;
     public float damageCooldown = 0.5f;
     public float currentTime;
     public float gravity;
@@ -59,7 +59,7 @@ public class RockController : MonoBehaviour
         GameObject.Destroy(gameObject);
     }
 
-    private void OnBecameInvisible()
+    public void OnBecameInvisible()
 	{
 		Destroy(gameObject);
 	}

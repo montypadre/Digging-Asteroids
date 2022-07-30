@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4384958188167369624}
   - component: {fileID: 4384958188167369631}
   - component: {fileID: 4384958188167369627}
-  - component: {fileID: -699495717636710039}
+  - component: {fileID: 2527945611155702373}
   m_Layer: 0
   m_Name: Sm Rock
   m_TagString: Enemy
@@ -115,7 +115,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 8
   m_CollisionDetection: 0
---- !u!114 &-699495717636710039
+--- !u!114 &2527945611155702373
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f2a3b7e3b25cf64b8733bba6124ecbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 0
   damageCooldown: 0.5
   currentTime: 0
   gravity: 0
