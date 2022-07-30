@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
-	public JawsBehavior jaws;
 	public GameObject explosion;
 	bool exploding = false;
-	public GameController gameController;
+	public GameController controller;
 
 	private void Start()
 	{
-		jaws = GetComponent<JawsBehavior>();
-		gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
+		controller = GameObject.FindWithTag("GameController").GetComponent<GameController>();
 		StartCoroutine(Countdown());
 	}
 
@@ -24,13 +22,9 @@ public class Bomb : MonoBehaviour
 			exploding = true;
 			GameObject explosionGo = Instantiate(explosion, transform.position, Quaternion.Euler(0, 0, 0));
 
+			controller.PlayerDies(); 
 			Destroy(gameObject, 0.5f);
 			Destroy(explosionGo, 1f);
-
-			if (jaws.isGrabbing)
-			{
-				gameController.PlayerDies();
-			}
 		}
 	}
 }

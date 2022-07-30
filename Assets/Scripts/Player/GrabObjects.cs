@@ -25,6 +25,7 @@ public class GrabObjects : MonoBehaviour
     {
         // isGrabbing = true;
         // RaycastHit2D hitInfo = Physics2D.Raycast(rayPoint.position, transform.right, rayDistance);
+
         grabbedObject.GetComponent<Rigidbody>().isKinematic = true;
         grabbedObject.transform.position = grabPoint.position;
         grabbedObject.transform.SetParent(transform);

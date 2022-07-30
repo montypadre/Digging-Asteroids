@@ -127,6 +127,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 334dced94a03c6f419ce38c934c56dea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jaws: {fileID: 5046092526605741336, guid: 8dd6463db7620e84c84220e63781004a, type: 3}
   explosion: {fileID: 139366, guid: b185c1a9cf067374586d095111b15bd1, type: 3}
-  gameController: {fileID: 8471139427520661901, guid: 5a5dddc86dd61d740a6807d0a717d06c, type: 3}
+  controller: {fileID: 8471139427520661901, guid: 5a5dddc86dd61d740a6807d0a717d06c, type: 3}
