@@ -49,14 +49,14 @@ public class GameController : MonoBehaviour
 		}
 		else
 		{
-			if (time < gameOverDelay)
-			{
-				time = time + Time.deltaTime;
-			}
-			else if (Input.anyKey || time > gameOverExpire)
-			{
-				SceneManager.LoadScene("MainMenuScene");
-			}
+			//if (time < gameOverDelay)
+			//{
+			//	time = time + Time.deltaTime;
+			//}
+			//else if (Input.anyKey || time > gameOverExpire)
+			//{
+			//	SceneManager.LoadScene("MainMenuScene");
+			//}
 		}
 	}
 

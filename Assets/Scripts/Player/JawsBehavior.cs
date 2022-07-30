@@ -5,7 +5,7 @@ using UnityEngine;
 public class JawsBehavior : MonoBehaviour
 {
     //public int damage = 40;
-	//bool isChomping;
+	public bool isGrabbing = false;
 
 	void OnTriggerStay(Collider other)
 	{
@@ -25,9 +25,11 @@ public class JawsBehavior : MonoBehaviour
 						other.gameObject.GetComponent<SmRock>().Chomp();
 						break;
 					case "Bomb(Clone)":
+						isGrabbing = true;
 						gameObject.GetComponent<GrabObjects>().GrabObject(other.gameObject);
 						break;
 					case "Gold Rock(Clone)":
+						isGrabbing = true;
 						gameObject.GetComponent<GrabObjects>().GrabObject(other.gameObject);
 						break;
 					default:
@@ -39,9 +41,11 @@ public class JawsBehavior : MonoBehaviour
 				switch (other.gameObject.name)
 				{
 					case "Bomb(Clone)":
+						isGrabbing = false;
 						gameObject.GetComponent<GrabObjects>().ReleaseObject(other.gameObject);
 						break;
 					case "Gold Rock(Clone)":
+						isGrabbing = false;
 						gameObject.GetComponent<GrabObjects>().ReleaseObject(other.gameObject);
 						break;
 					default:
