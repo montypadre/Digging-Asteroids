@@ -55,7 +55,7 @@ public class GameController : MonoBehaviour
 			}
 			else if (Input.anyKey || time > gameOverExpire)
 			{
-				SceneManager.LoadScene("MainMenuScene");
+				//SceneManager.LoadScene("MainMenuScene");
 			}
 		}
 	}
