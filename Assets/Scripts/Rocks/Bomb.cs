@@ -33,4 +33,9 @@ public class Bomb : MonoBehaviour
 			}
 		}
 	}
+
+	public void OnBecameInvisible()
+	{
+		Destroy(gameObject);
+	}
 }

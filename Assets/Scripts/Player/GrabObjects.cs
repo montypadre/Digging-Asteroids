@@ -25,7 +25,7 @@ public class GrabObjects : MonoBehaviour
     {
         // isGrabbing = true;
         // RaycastHit2D hitInfo = Physics2D.Raycast(rayPoint.position, transform.right, rayDistance);
-
+        //Debug.Log("grabbed");
         grabbedObject.GetComponent<Rigidbody>().isKinematic = true;
         grabbedObject.transform.position = grabPoint.position;
         grabbedObject.transform.SetParent(transform);
@@ -63,6 +63,7 @@ public class GrabObjects : MonoBehaviour
 
     public void ReleaseObject(GameObject releasedObject)
 	{
+        //Debug.Log("released");
         releasedObject.GetComponent<Rigidbody>().isKinematic = false;
         releasedObject.transform.SetParent(null);
         releasedObject = null;

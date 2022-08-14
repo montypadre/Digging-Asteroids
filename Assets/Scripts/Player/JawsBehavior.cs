@@ -29,7 +29,6 @@ public class JawsBehavior : MonoBehaviour
 						gameObject.GetComponent<GrabObjects>().GrabObject(other.gameObject);
 						break;
 					case "Gold Rock(Clone)":
-						isGrabbing = true;
 						gameObject.GetComponent<GrabObjects>().GrabObject(other.gameObject);
 						break;
 					default:
@@ -45,7 +44,6 @@ public class JawsBehavior : MonoBehaviour
 						gameObject.GetComponent<GrabObjects>().ReleaseObject(other.gameObject);
 						break;
 					case "Gold Rock(Clone)":
-						isGrabbing = false;
 						gameObject.GetComponent<GrabObjects>().ReleaseObject(other.gameObject);
 						break;
 					default:

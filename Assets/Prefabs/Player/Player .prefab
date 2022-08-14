@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 3316720850257133077}
   - component: {fileID: -3295609074661665636}
   - component: {fileID: 4374276553088359006}
-  - component: {fileID: 3718895551545895807}
   m_Layer: 0
   m_Name: 'Player '
   m_TagString: Player
@@ -146,27 +145,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a18df29f82753f648bab0a7182e2541d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 180
-  movementSpeed: 150
+  rotationSpeed: 200
+  movementSpeed: 300
   damage: 100
   cooldown: 0.3
   time: 0
   bounce: 0
   force: 5
---- !u!114 &3718895551545895807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5712849474031854363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94fa2c5ea3498de419a8e1cbbdca1475, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  gameController: {fileID: 0}
 --- !u!1 &5712849474331503396
 GameObject:
   m_ObjectHideFlags: 0

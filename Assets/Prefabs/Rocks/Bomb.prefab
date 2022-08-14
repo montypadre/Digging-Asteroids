@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 967519367621784035}
   - component: {fileID: 967519367621784039}
   - component: {fileID: 5252153243506116985}
+  - component: {fileID: 8198947561185691216}
   m_Layer: 6
   m_Name: Bomb
   m_TagString: Enemy
@@ -128,4 +129,49 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 139366, guid: b185c1a9cf067374586d095111b15bd1, type: 3}
-  controller: {fileID: 8471139427520661901, guid: 5a5dddc86dd61d740a6807d0a717d06c, type: 3}
+  jaws: {fileID: 0}
+  gameController: {fileID: 0}
+--- !u!114 &8198947561185691216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967519367621784044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 298e11d84ef49f946a97addf189646cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttractionRange: 3
+  AttractionStrength: 5
+  AttractedTo:
+    serializedVersion: 2
+    m_Bits: 128
+  AttractionStartSpeed: 1
+  AttractionMaxSpeed: 3
+  VelocityCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  AccelerationSpeed: 0.5
