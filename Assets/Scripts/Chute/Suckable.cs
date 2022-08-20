@@ -46,7 +46,6 @@ public class Suckable : MonoBehaviour
         }
 
         target = hits[ranges.IndexOf(ranges.Min())].collider.gameObject;
-        Debug.Log(target);
         Vector3 dir = target.transform.position - transform.position;
         s += Time.deltaTime * AccelerationSpeed;
         varSpeed = Mathf.Lerp(AttractionStartSpeed, AttractionMaxSpeed, VelocityCurve.Evaluate(s / 1f));

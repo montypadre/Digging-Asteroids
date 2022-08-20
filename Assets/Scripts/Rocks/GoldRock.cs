@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GoldRock : RockController
 {
-    public override void Chomp()
+	public override void Chomp()
     {
         
     }
