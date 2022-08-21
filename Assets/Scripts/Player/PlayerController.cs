@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        // Bounce player off walls
         Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
 
         if (screenPos.x < 0)
@@ -39,6 +40,7 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(Vector2.up * force, ForceMode.Impulse);
         }
 
+        // Move player
         if (time > 0f)
 		{
             time -= Time.deltaTime;

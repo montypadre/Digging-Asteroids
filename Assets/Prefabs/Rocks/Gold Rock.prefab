@@ -131,6 +131,7 @@ MonoBehaviour:
   damageCooldown: 0.5
   currentTime: 0
   gravity: 0
+  force: 0.1
   isChomping: 0
   rocks: []
 --- !u!114 &-2776973894000021317

@@ -127,9 +127,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15be8152171580e4ba94775762308958, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
   damageCooldown: 0.5
   currentTime: 0
   gravity: 0
+  force: 0.1
+  isChomping: 0
   rocks:
   - {fileID: 6579079541931880046, guid: ac83986f4921c35438aa4bf492c85c12, type: 3}

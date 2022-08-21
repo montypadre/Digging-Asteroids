@@ -9,6 +9,7 @@ public class RockController : MonoBehaviour
     public float damageCooldown = 0.5f;
     public float currentTime;
     public float gravity;
+    public float force = 10;
     //public int health = 100;
     //private int currentHealth = 0;
     public bool isChomping;
@@ -27,11 +28,11 @@ public class RockController : MonoBehaviour
 
         if (screenPos.x < 0)
         {
-            rb.AddForce(Vector2.right * 10, ForceMode.Impulse);
+            rb.AddForce(Vector2.right * force, ForceMode.Impulse);
         }
         else if (screenPos.x > Screen.width)
         {
-            rb.AddForce(Vector2.left * 10, ForceMode.Impulse);
+            rb.AddForce(Vector2.left * force, ForceMode.Impulse);
         }
         //else if (screenPos.y > Screen.height)
         //{
