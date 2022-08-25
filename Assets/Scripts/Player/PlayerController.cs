@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public float bounce;
     public float force = 5;
     private Rigidbody rb;
+    public float speed = 5f;
 
 	void Start()
 	{
@@ -22,6 +23,12 @@ public class PlayerController : MonoBehaviour
     {
         // Bounce player off walls
         Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
+
+        // Mouse Look
+        Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, speed * Time.deltaTime);
 
         if (screenPos.x < 0)
         {
@@ -57,47 +64,69 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime);
+            //transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime);
+            GetComponent<Rigidbody>().AddForce(transform.right * -movementSpeed * Time.deltaTime);
         }
 
         if (Input.GetKey(KeyCode.D))
         {
-            transform.Rotate(-Vector3.forward * rotationSpeed * Time.deltaTime);
+            //transform.Rotate(-Vector3.forward * rotationSpeed * Time.deltaTime);
+            GetComponent<Rigidbody>().AddForce(transform.right * movementSpeed * Time.deltaTime);
         }
+        //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //transform.LookAt(ray.origin);
+        //FaceMouse();
+        //Vector3 mousePos = viewCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, viewCamera.transform.position.y));
+        //transform.LookAt(mousePos + Vector3.right * transform.position.y);
+        //velocity = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized * moveSpeed;    
     }
 
-    //   void OnTriggerStay(Collider other)
-    //{
-    //       //Debug.Log("Entered Collision");
-    //	if (Input.GetMouseButton(0))
-    //	{
-    //           //Debug.Log("Clicked");
-    //           // Activate drill
-    //           Block block = other.gameObject.GetComponent<Block>();
-    //           Debug.Log(block);
-    //           if (block != null)
-    //		{
-    //               block.DealDamage(damage);
-    //		}
-    //       }
-    //}
+	//   void OnTriggerStay(Collider other)
+	//{
+	//       //Debug.Log("Entered Collision");
+	//	if (Input.GetMouseButton(0))
+	//	{
+	//           //Debug.Log("Clicked");
+	//           // Activate drill
+	//           Block block = other.gameObject.GetComponent<Block>();
+	//           Debug.Log(block);
+	//           if (block != null)
+	//		{
+	//               block.DealDamage(damage);
+	//		}
+	//       }
+	//}
 
-    //void OnCollisionEnter(Collision collision)
-    //{
-    //       Debug.Log("Entered Collision");
-    //       Debug.Log(collision.gameObject);
-    //       if (collision.gameObject.name == "Dirt(Clone)" || collision.gameObject.name == "Gold(Clone)" || collision.gameObject.name == "Oil(Clone)")
-    //	{
-    //           Debug.Log("gameObject collision");
-    //           bounce = 100f;
-    //           rb.AddForce(collision.contacts[0].normal * bounce);
-    //           isBouncing = true;
-    //           Invoke("StopBounce", 0.3f);
-    //	}
-    //}
+	//void OnCollisionEnter(Collision collision)
+	//{
+	//       Debug.Log("Entered Collision");
+	//       Debug.Log(collision.gameObject);
+	//       if (collision.gameObject.name == "Dirt(Clone)" || collision.gameObject.name == "Gold(Clone)" || collision.gameObject.name == "Oil(Clone)")
+	//	{
+	//           Debug.Log("gameObject collision");
+	//           bounce = 100f;
+	//           rb.AddForce(collision.contacts[0].normal * bounce);
+	//           isBouncing = true;
+	//           Invoke("StopBounce", 0.3f);
+	//	}
+	//}
 
-    //   void StopBounce()
-    //{
-    //       isBouncing = false;
-    //}
+	//   void StopBounce()
+	//{
+	//       isBouncing = false;
+	//}
+	void FaceMouse()
+	{
+        //Vector3 mousePosition = Input.mousePosition;
+        //mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+
+        //Vector2 direction = new Vector2(mousePosition.x - transform.position.x, mousePosition.x - transform.position.y);
+
+        //transform.up = direction;
+        // Mouse Look
+        Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        transform.rotation = Quaternion.Lerp(transform.rotation, rotation, speed * Time.deltaTime);
+    }
 }
