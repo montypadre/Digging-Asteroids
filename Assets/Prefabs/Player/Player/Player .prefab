@@ -153,14 +153,6 @@ MonoBehaviour:
   bounce: 0
   force: 5
   speed: 5
-  rotX: 5
-  mouseSensitivity: 5
-  rotY: 5
-  xVelocity: 5
-  yVelocity: 5
-  snappiness: 5
-  lockMouseMovement: 0
-  upDownRange: 1
 --- !u!1 &5712849474331503396
 GameObject:
   m_ObjectHideFlags: 0
