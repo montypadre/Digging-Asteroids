@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 200
-  movementSpeed: 300
+  movementSpeed: 400
   damage: 100
   cooldown: 0.3
   time: 0

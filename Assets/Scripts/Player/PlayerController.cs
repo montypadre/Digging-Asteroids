@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     public float bounce;
     public float force = 5;
     private Rigidbody rb;
-    public float speed = 5f;
+    public float speed = 1f;
 
 	void Start()
 	{
@@ -21,8 +21,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+        float horizontalInput = Input.GetAxisRaw("Horizontal");
+        float verticalInput = Input.GetAxisRaw("Vertical");
 
 
         // Bounce player off walls
@@ -31,12 +31,13 @@ public class PlayerController : MonoBehaviour
         // Mouse Look
         //Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         //float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        //Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        // angle -= 90;
+		//Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         //transform.rotation = Quaternion.Slerp(transform.rotation, rotation, speed * Time.deltaTime);
-        Vector3 mousePos = Input.mousePosition;
+        
+		Vector3 mousePos = Input.mousePosition;
         mousePos.z = 0;
 
-        Vector3 objectPos = Camera.main.WorldToScreenPoint(transform.position);
         mousePos.x = mousePos.x - screenPos.x;
         mousePos.y = mousePos.y - screenPos.y;
 
@@ -66,27 +67,33 @@ public class PlayerController : MonoBehaviour
 		{
             time -= Time.deltaTime;
 		}
-		if (Input.GetKey(KeyCode.W))
-		{
-			GetComponent<Rigidbody>().AddForce(new Vector3(horizontalInput, verticalInput, 0) * movementSpeed * Time.deltaTime);
-		}
+		//if (Input.GetKey(KeyCode.W))
+		//{
+		//	GetComponent<Rigidbody>().AddForce(new Vector3(horizontalInput, verticalInput, 0) * movementSpeed * Time.deltaTime);
+		//}
 
-		if (Input.GetKey(KeyCode.S))
-		{
-			GetComponent<Rigidbody>().AddForce(new Vector3(horizontalInput, verticalInput, 0) * movementSpeed * Time.deltaTime);
-		}
+		//if (Input.GetKey(KeyCode.S))
+		//{
+		//	GetComponent<Rigidbody>().AddForce(new Vector3(horizontalInput, verticalInput, 0) * movementSpeed * Time.deltaTime);
+		//}
 
-		if (Input.GetKey(KeyCode.A))
-		{
-			//transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime);
-			GetComponent<Rigidbody>().AddForce(new Vector3(horizontalInput, verticalInput, 0) * movementSpeed * Time.deltaTime);
-		}
+		//if (Input.GetKey(KeyCode.A))
+		//{
+		//	//transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime);
+		//	GetComponent<Rigidbody>().AddForce(new Vector3(horizontalInput, verticalInput, 0) * movementSpeed * Time.deltaTime);
+		//}
 
-		if (Input.GetKey(KeyCode.D))
-		{
-			//transform.Rotate(-Vector3.forward * rotationSpeed * Time.deltaTime);
-			GetComponent<Rigidbody>().AddForce(new Vector3(horizontalInput, verticalInput, 0) * movementSpeed * Time.deltaTime);
-		}
+		//if (Input.GetKey(KeyCode.D))
+		//{
+		//	//transform.Rotate(-Vector3.forward * rotationSpeed * Time.deltaTime);
+		//	GetComponent<Rigidbody>().AddForce(new Vector3(horizontalInput, verticalInput, 0) * movementSpeed * Time.deltaTime);
+		//}
+
+		//transform.Translate(Vector3.right * Input.GetAxis("Horizontal") * Time.deltaTime * speed);
+		//transform.Translate(Vector3.up * Input.GetAxis("Vertical") * Time.deltaTime * speed);
+
+		transform.Translate(new Vector3(horizontalInput, verticalInput, 0) * speed * Time.deltaTime, Space.World);
+
 		//Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		//transform.LookAt(ray.origin);
 		//FaceMouse();
