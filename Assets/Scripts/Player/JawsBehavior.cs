@@ -6,8 +6,6 @@ public class JawsBehavior : MonoBehaviour
 {
     //public int damage = 40;
 	public bool isGrabbing = false;
-	public ParticleSystem chompParticle;
-	public GameObject spawnPoint;
 
 	void OnTriggerStay(Collider other)
 	{
@@ -22,7 +20,6 @@ public class JawsBehavior : MonoBehaviour
 						break;
 					case "Med Rock(Clone)":
 						other.gameObject.GetComponent<MedRock>().Chomp();
-						Instantiate(chompParticle,transform.position, transform.rotation);
 						break;
 					case "Sm Rock(Clone)":
 						other.gameObject.GetComponent<SmRock>().Chomp();
