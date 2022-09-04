@@ -46,7 +46,7 @@ public class GoldCollect : MonoBehaviour
 	private void OnTriggerEnter(Collider other)
 	{
         //Debug.Log(other);
-        if (other.gameObject.name == "Gold Rock(Clone)")
+        if (other.gameObject.name == "purple(Clone)" || other.gameObject.name == "sapphire(Clone)" || other.gameObject.name == "emerald(Clone)" || other.gameObject.name == "star(Clone)")
 		{
             Debug.Log("Entered Trigger");
             //Debug.Log(other.gameObject.name);
