@@ -31,16 +31,7 @@ public class JawsBehavior : MonoBehaviour
 						isGrabbing = true;
 						gameObject.GetComponent<GrabObjects>().GrabObject(other.gameObject);
 						break;
-					case "purple(Clone)":
-						gameObject.GetComponent<GrabObjects>().GrabObject(other.gameObject);
-						break;
-					case "sapphire(Clone)":
-						gameObject.GetComponent<GrabObjects>().GrabObject(other.gameObject);
-						break;
-					case "emerald(Clone)":
-						gameObject.GetComponent<GrabObjects>().GrabObject(other.gameObject);
-						break;
-					case "star(Clone)":
+					case "Gold Rock(Clone)":
 						gameObject.GetComponent<GrabObjects>().GrabObject(other.gameObject);
 						break;
 					default:
@@ -55,16 +46,7 @@ public class JawsBehavior : MonoBehaviour
 						isGrabbing = false;
 						gameObject.GetComponent<GrabObjects>().ReleaseObject(other.gameObject);
 						break;
-					case "purple(Clone)":
-						gameObject.GetComponent<GrabObjects>().ReleaseObject(other.gameObject);
-						break;
-					case "sapphire(Clone)":
-						gameObject.GetComponent<GrabObjects>().ReleaseObject(other.gameObject);
-						break;
-					case "emerald(Clone)":
-						gameObject.GetComponent<GrabObjects>().ReleaseObject(other.gameObject);
-						break;
-					case "star(Clone)":
+					case "Gold Rock(Clone)":
 						gameObject.GetComponent<GrabObjects>().ReleaseObject(other.gameObject);
 						break;
 					default:

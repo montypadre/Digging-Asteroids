@@ -10,7 +10,7 @@ public class GameController : MonoBehaviour
 {
 	public GameObject player;
 	public Vector3 screenCenter;
-	public GameObject medRock;
+	public GameObject bigRock;
 	public GameObject rockSpawner;
 	public GameObject gameOverPanel;
 
@@ -61,7 +61,7 @@ public class GameController : MonoBehaviour
 
 	void Spawn()
 	{
-		Instantiate(medRock, new Vector3(Random.Range(-4.5f, 4.5f), rockSpawner.transform.position.y, 0), Quaternion.Euler(0, 0, 0));
+		Instantiate(bigRock, new Vector3(Random.Range(-4.5f, 4.5f), rockSpawner.transform.position.y, 0), Quaternion.Euler(0, 0, 0));
 	}
 
 	//IEnumerator Delay()

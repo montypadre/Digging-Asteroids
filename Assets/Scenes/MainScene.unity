@@ -3576,7 +3576,6 @@ MonoBehaviour:
   speed: 0
   min: -7
   max: 7
-  minSet: 4
 --- !u!1 &1019900328
 GameObject:
   m_ObjectHideFlags: 0
@@ -6355,10 +6354,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: GameController
       objectReference: {fileID: 0}
-    - target: {fileID: 8471139427520661901, guid: 5a5dddc86dd61d740a6807d0a717d06c, type: 3}
-      propertyPath: medRock
-      value: 
-      objectReference: {fileID: 6579079541931880046, guid: ac83986f4921c35438aa4bf492c85c12, type: 3}
     - target: {fileID: 8471139427520661901, guid: 5a5dddc86dd61d740a6807d0a717d06c, type: 3}
       propertyPath: rockSpawner
       value: 
