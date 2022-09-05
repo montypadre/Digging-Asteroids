@@ -26,11 +26,11 @@ public class Bomb : MonoBehaviour
 
 			Destroy(gameObject, 0.5f);
 			Destroy(explosionGo, 1f);
-
-			if (jaws.isGrabbing)
-			{
-				gameController.PlayerDies();
-			}
+			gameController.PlayerDies();
+			//if (jaws.isGrabbing)
+			//{
+			//	gameController.PlayerDies();
+			//}
 		}
 	}
 

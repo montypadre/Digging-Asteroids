@@ -36,7 +36,6 @@ public class GoldCollect : MonoBehaviour
             }
             else
 			{
-                Debug.Log("Combo Gold: " + comboGold);
                 // When Timer finishes, increment gold amt by Combo amt
                 timeRemaining = 0;
                 timerIsRunning = false;
@@ -51,7 +50,6 @@ public class GoldCollect : MonoBehaviour
         //Debug.Log(other);
         if (other.gameObject.name == "purple(Clone)" || other.gameObject.name == "sapphire(Clone)" || other.gameObject.name == "emerald(Clone)" || other.gameObject.name == "star(Clone)")
 		{
-            Debug.Log("Entered Trigger");
             //Debug.Log(other.gameObject.name);
             //numGold++;
             goldMeter.slider.value += 2;                // Bar Increase

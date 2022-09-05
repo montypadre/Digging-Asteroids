@@ -4,73 +4,151 @@ using UnityEngine;
 
 public class JawsBehavior : MonoBehaviour
 {
-    //public int damage = 40;
+	//public int damage = 40;
+	private bool isEnemy = false;
 	public bool isGrabbing = false;
 	public ParticleSystem chompParticle;
-	public GameObject spawnPoint;
+	public MedRock medRock;
+	private Collider enemy;
+
+	private void Update()
+	{
+		if (isEnemy && enemy != null)
+		{
+			if (enemy.gameObject.CompareTag("Rock"))
+			{
+				if (Input.GetMouseButtonDown(0))
+				{
+					enemy.gameObject.GetComponent<MedRock>().Chomp();
+					Instantiate(chompParticle, transform.position, transform.rotation);
+				}
+				//else if (Input.GetMouseButtonUp(0))
+				//{
+				//	//if (enemy.gameObject.CompareTag("Gem") || enemy.gameObject.CompareTag("Bomb"))
+				//	//{
+				//	//	isGrabbing = false;
+				//	//	gameObject.GetComponent<GrabObjects>().ReleaseObject(enemy.gameObject);
+				//	//}
+				//	//Debug.Log(enemy);
+				//	switch (enemy.gameObject.name)
+				//	{
+				//		case "Bomb(Clone)":
+				//			gameObject.GetComponent<GrabObjects>().ReleaseObject(enemy.gameObject);
+				//			break;
+				//		case "purple(Clone)":
+				//			gameObject.GetComponent<GrabObjects>().ReleaseObject(enemy.gameObject);
+				//			break;
+				//		case "sapphire(Clone)":
+				//			gameObject.GetComponent<GrabObjects>().ReleaseObject(enemy.gameObject);
+				//			break;
+				//		case "emerald(Clone)":
+				//			gameObject.GetComponent<GrabObjects>().ReleaseObject(enemy.gameObject);
+				//			break;
+				//		case "star(Clone)":
+				//			gameObject.GetComponent<GrabObjects>().ReleaseObject(enemy.gameObject);
+				//			break;
+				//		default:
+				//			break;
+				//	}
+				//}
+				//	{
+				//if (enemy.gameObject.CompareTag("Rock"))
+				//{
+				//	enemy.gameObject.GetComponent<MedRock>().Chomp();
+				//	Instantiate(chompParticle, transform.position, transform.rotation);
+				//}
+				//else if (enemy.gameObject.CompareTag("Gem") || enemy.gameObject.CompareTag("Bomb"))
+				//{
+				//	Debug.Log(isGrabbing);
+				//	isGrabbing = true;
+				//	gameObject.GetComponent<GrabObjects>().GrabObject(enemy.gameObject);
+				//}
+				//	Debug.Log(enemy);
+				//switch (enemy.gameObject.name)
+				//{
+				//	case "Med Rock(Clone)":
+				//		enemy.gameObject.GetComponent<MedRock>().Chomp();
+				//		Instantiate(chompParticle, transform.position, transform.rotation);
+				//		break;
+				//	case "Bomb(Clone)":
+				//		gameObject.GetComponent<GrabObjects>().GrabObject(enemy.gameObject);
+				//		break;
+				//	case "purple(Clone)":
+				//		gameObject.GetComponent<GrabObjects>().GrabObject(enemy.gameObject);
+				//		break;
+				//	case "sapphire(Clone)":
+				//		gameObject.GetComponent<GrabObjects>().GrabObject(enemy.gameObject);
+				//		break;
+				//	case "emerald(Clone)":
+				//		gameObject.GetComponent<GrabObjects>().GrabObject(enemy.gameObject);
+				//		break;
+				//	case "star(Clone)":
+				//		gameObject.GetComponent<GrabObjects>().GrabObject(enemy.gameObject);
+				//		break;
+				//	default:
+				//		break;
+				//}
+			}
+		}
+	}
+
+	void OnTriggerEnter(Collider other)
+	{
+		enemy = other;
+		isEnemy = true;
+	}
+
+	void OnTriggerExit(Collider other)
+	{
+		isEnemy = false;
+	}
 
 	void OnTriggerStay(Collider other)
 	{
-		if (other.gameObject.tag == "Enemy")
+		if (Input.GetMouseButtonDown(0))
 		{
-			if (Input.GetMouseButtonDown(0))
+			if (other.gameObject.CompareTag("Gem"))
 			{
-				switch (other.gameObject.name)
-				{
-					case "Big Rock(Clone)":
-						other.gameObject.GetComponent<BigRock>().Chomp();
-						break;
-					case "Med Rock(Clone)":
-						other.gameObject.GetComponent<MedRock>().Chomp();
-						Instantiate(chompParticle,transform.position, transform.rotation);
-						break;
-					case "Sm Rock(Clone)":
-						other.gameObject.GetComponent<SmRock>().Chomp();
-						break;
-					case "Bomb(Clone)":
-						isGrabbing = true;
-						gameObject.GetComponent<GrabObjects>().GrabObject(other.gameObject);
-						break;
-					case "purple(Clone)":
-						gameObject.GetComponent<GrabObjects>().GrabObject(other.gameObject);
-						break;
-					case "sapphire(Clone)":
-						gameObject.GetComponent<GrabObjects>().GrabObject(other.gameObject);
-						break;
-					case "emerald(Clone)":
-						gameObject.GetComponent<GrabObjects>().GrabObject(other.gameObject);
-						break;
-					case "star(Clone)":
-						gameObject.GetComponent<GrabObjects>().GrabObject(other.gameObject);
-						break;
-					default:
-						break;
-				}
+				gameObject.GetComponent<GrabObjects>().GrabObject(other.gameObject);
 			}
-			else if (Input.GetMouseButtonUp(0))
+			else if (other.gameObject.CompareTag("Bomb"))
 			{
-				switch (other.gameObject.name)
-				{
-					case "Bomb(Clone)":
-						isGrabbing = false;
-						gameObject.GetComponent<GrabObjects>().ReleaseObject(other.gameObject);
-						break;
-					case "purple(Clone)":
-						gameObject.GetComponent<GrabObjects>().ReleaseObject(other.gameObject);
-						break;
-					case "sapphire(Clone)":
-						gameObject.GetComponent<GrabObjects>().ReleaseObject(other.gameObject);
-						break;
-					case "emerald(Clone)":
-						gameObject.GetComponent<GrabObjects>().ReleaseObject(other.gameObject);
-						break;
-					case "star(Clone)":
-						gameObject.GetComponent<GrabObjects>().ReleaseObject(other.gameObject);
-						break;
-					default:
-						break;
-				}
+				isGrabbing = true;
+				gameObject.GetComponent<GrabObjects>().GrabObject(other.gameObject);
 			}
+		}
+		else if (Input.GetMouseButtonUp(0))
+		{
+			if (other.gameObject.CompareTag("Gem"))
+			{
+				gameObject.GetComponent<GrabObjects>().ReleaseObject(other.gameObject);
+			}
+			else if (other.gameObject.CompareTag("Bomb"))
+			{
+				isGrabbing = false;
+				gameObject.GetComponent<GrabObjects>().ReleaseObject(other.gameObject);
+			}
+				//switch (other.gameObject.name)
+				//{
+				//	case "Bomb(Clone)":
+				//		isGrabbing = false;
+				//		gameObject.GetComponent<GrabObjects>().ReleaseObject(other.gameObject);
+				//		break;
+				//	case "purple(Clone)":
+				//		gameObject.GetComponent<GrabObjects>().ReleaseObject(other.gameObject);
+				//		break;
+				//	case "sapphire(Clone)":
+				//		gameObject.GetComponent<GrabObjects>().ReleaseObject(other.gameObject);
+				//		break;
+				//	case "emerald(Clone)":
+				//		gameObject.GetComponent<GrabObjects>().ReleaseObject(other.gameObject);
+				//		break;
+				//	case "star(Clone)":
+				//		gameObject.GetComponent<GrabObjects>().ReleaseObject(other.gameObject);
+				//		break;
+				//	default:
+				//		break;
+				//}
 		}
 	}
 }

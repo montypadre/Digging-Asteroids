@@ -51,6 +51,7 @@ public class RockController : MonoBehaviour
         // Debug.Log("Chomping");
         while (isChomping)
 		{
+            Debug.Log("RockController Chomp");
             isChomping = false;
             // Debug.Log("Instantiating");
 			Instantiate(rocks[i], transform.localPosition, transform.localRotation);
