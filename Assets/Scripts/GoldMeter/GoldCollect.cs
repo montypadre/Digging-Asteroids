@@ -6,6 +6,9 @@ public class GoldCollect : MonoBehaviour
 {
     public int maxGoldAmt = 100;
     public int currentGold;
+    public GameObject chuteParticle;
+    public GameObject particleSpawn;
+    public GameObject chuteParticleSmoke;
     //private Coroutine comboTimer;
     //private int numGold = 0;
     //private float combo;
@@ -71,10 +74,12 @@ public class GoldCollect : MonoBehaviour
 
             // If gold or bomb hit trigger, remove
             Destroy(other.gameObject);
+            Instantiate(chuteParticle, particleSpawn.transform.position, particleSpawn.transform.rotation);
         }
         if (other.gameObject.name == "Bomb(Clone)")
 		{
             Destroy(other.gameObject);
+            Instantiate(chuteParticleSmoke, particleSpawn.transform.position, particleSpawn.transform.rotation);
         }
     }
 
