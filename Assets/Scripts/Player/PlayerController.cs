@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     public float force = 5;
     private Rigidbody rb;
     public float speed = 1f;
+	private Collider col;
+	private int currentId;
 
 	void Start()
 	{
@@ -24,28 +26,20 @@ public class PlayerController : MonoBehaviour
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         float verticalInput = Input.GetAxisRaw("Vertical");
 
-
-        // Bounce player off walls
         Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
-
-        // Mouse Look
-        //Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        //float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        // angle -= 90;
-		//Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        //transform.rotation = Quaternion.Slerp(transform.rotation, rotation, speed * Time.deltaTime);
         
 		Vector3 mousePos = Input.mousePosition;
         mousePos.z = 0;
 
-        mousePos.x = mousePos.x - screenPos.x;
-        mousePos.y = mousePos.y - screenPos.y;
+        mousePos.x -= screenPos.x;
+        mousePos.y -= screenPos.y;
 
         float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
         angle -= 90;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
-        if (screenPos.x < 0)
+		// Bounce player off walls
+		if (screenPos.x < 0)
         {
             rb.AddForce(Vector2.right * force, ForceMode.Impulse);
         }
@@ -92,14 +86,50 @@ public class PlayerController : MonoBehaviour
 		//transform.Translate(Vector3.right * Input.GetAxis("Horizontal") * Time.deltaTime * speed);
 		//transform.Translate(Vector3.up * Input.GetAxis("Vertical") * Time.deltaTime * speed);
 
-		transform.Translate(new Vector3(horizontalInput, verticalInput, 0) * speed * Time.deltaTime, Space.World);
+		transform.Translate(speed * Time.deltaTime * new Vector3(horizontalInput, verticalInput, 0), Space.World);
 
+		////**************** Physics Code *****************************//
+		//if (col != null)
+		//{
+		//	if (col.CompareTag("Rock"))
+		//	{
+		//		col.GetComponent<Rigidbody>().AddForce(Vector3.up * rb.mass, ForceMode.Force);
+		//		rb.AddForce(Vector3.down * col.GetComponent<Rigidbody>().mass, ForceMode.Force);
+		//	}
+		//}
+
+		//if (col != null)
+		//{
+		//	if (col.CompareTag("Rock"))
+		//	{
+		//		Vector3 dir = col.contacts[0].point - transform.position
+		//	}
+		//}
 		//Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		//transform.LookAt(ray.origin);
 		//FaceMouse();
 		//Vector3 mousePos = viewCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, viewCamera.transform.position.y));
 		//transform.LookAt(mousePos + Vector3.right * transform.position.y);
 		//velocity = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized * moveSpeed;    
+	}
+
+	void FixedUpdate()
+	{
+		//**************** Physics Code *****************************//
+		if (col != null)
+		{
+			if (col.CompareTag("Rock"))
+			{
+				col.GetComponent<Rigidbody>().AddForce(Vector3.up * rb.mass, ForceMode.Force);
+				rb.AddForce(Vector3.down * col.GetComponent<Rigidbody>().mass, ForceMode.Force);
+			}
+		}
+	}
+
+	//**************** Physics Code *****************************//
+	void OnTriggerEnter(Collider other)
+	{
+		col = other;
 	}
 
 	//   void OnTriggerStay(Collider other)
@@ -136,18 +166,18 @@ public class PlayerController : MonoBehaviour
 	//{
 	//       isBouncing = false;
 	//}
-	void FaceMouse()
-	{
-		//Vector3 mousePosition = Input.mousePosition;
-		//mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+	//void FaceMouse()
+	//{
+	//	//Vector3 mousePosition = Input.mousePosition;
+	//	//mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
-		//Vector2 direction = new Vector2(mousePosition.x - transform.position.x, mousePosition.x - transform.position.y);
+	//	//Vector2 direction = new Vector2(mousePosition.x - transform.position.x, mousePosition.x - transform.position.y);
 
-		//transform.up = direction;
-		// Mouse Look
-		Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-		float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-		Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-		transform.rotation = Quaternion.Lerp(transform.rotation, rotation, speed * Time.deltaTime);
-	}
+	//	//transform.up = direction;
+	//	// Mouse Look
+	//	Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+	//	float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+	//	Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+	//	transform.rotation = Quaternion.Lerp(transform.rotation, rotation, speed * Time.deltaTime);
+	//}
 }

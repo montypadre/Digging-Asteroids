@@ -6,7 +6,12 @@ public class MedRock : RockController
 {
     public override void Chomp()
 	{
-        Instantiate(rocks[Random.Range(0, 15)], transform.localPosition, transform.localRotation);
-        GameObject.Destroy(gameObject);
+        Instantiate(rocks[Random.Range(0, rocks.Length)], transform.localPosition, transform.localRotation);
+        Destroy(gameObject);
+    }
+
+    public int GetID()
+    {
+        return gameObject.GetInstanceID();
     }
 }

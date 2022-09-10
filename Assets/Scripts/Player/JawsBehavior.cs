@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class JawsBehavior : MonoBehaviour
 {
-	//public int damage = 40;
-	private bool isEnemy = false;
 	public bool isGrabbing = false;
 	public ParticleSystem chompParticle;
 	public MedRock medRock;
@@ -14,7 +12,6 @@ public class JawsBehavior : MonoBehaviour
 
 	private void Update()
 	{
-		Debug.Log(currentObj);
 		if (col != null)
 		{
 			if (Input.GetMouseButtonDown(0) && col.CompareTag("Rock"))
@@ -27,7 +24,7 @@ public class JawsBehavior : MonoBehaviour
 				currentObj = col.gameObject;
 				gameObject.GetComponent<GrabObjects>().GrabObject(col.gameObject);
 			}
-			if (Input.GetMouseButtonUp(1) )
+			if (Input.GetMouseButtonUp(1))
 			{
 				gameObject.GetComponent<GrabObjects>().ReleaseObject(currentObj);
 			}
