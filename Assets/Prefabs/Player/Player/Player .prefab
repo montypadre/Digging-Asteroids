@@ -152,7 +152,7 @@ MonoBehaviour:
   cooldown: 0.3
   time: 0
   bounce: 0
-  force: 5
+  force: 0.1
   speed: 5
 --- !u!95 &8151977477680084600
 Animator:
@@ -233,7 +233,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5712849474331503396}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5

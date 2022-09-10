@@ -86,7 +86,9 @@ public class PlayerController : MonoBehaviour
 		//transform.Translate(Vector3.right * Input.GetAxis("Horizontal") * Time.deltaTime * speed);
 		//transform.Translate(Vector3.up * Input.GetAxis("Vertical") * Time.deltaTime * speed);
 
-		transform.Translate(speed * Time.deltaTime * new Vector3(horizontalInput, verticalInput, 0), Space.World);
+		//CURRENT MOVEMENT SCRIPT
+		//transform.Translate(speed * Time.deltaTime * new Vector3(horizontalInput, verticalInput, 0), Space.World);
+		//
 
 		////**************** Physics Code *****************************//
 		//if (col != null)
@@ -110,7 +112,25 @@ public class PlayerController : MonoBehaviour
 		//FaceMouse();
 		//Vector3 mousePos = viewCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, viewCamera.transform.position.y));
 		//transform.LookAt(mousePos + Vector3.right * transform.position.y);
-		//velocity = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized * moveSpeed;    
+		//velocity = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized * moveSpeed;   
+
+		//MARK STUFF MIGHT BE BAD
+		if (horizontalInput > 0)
+		{
+			rb.AddForce(Vector2.right * force, ForceMode.Impulse);
+		}
+		if (horizontalInput < 0)
+		{
+			rb.AddForce(Vector2.left * force, ForceMode.Impulse);
+		}
+		if (verticalInput < 0)
+		{
+			rb.AddForce(Vector2.down * force, ForceMode.Impulse);
+		}
+		if (verticalInput > 0)
+		{
+			rb.AddForce(Vector2.up * force, ForceMode.Impulse);
+		}
 	}
 
 	void FixedUpdate()
