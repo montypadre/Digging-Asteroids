@@ -112,6 +112,7 @@ MonoBehaviour:
   - {fileID: 1877489875833003644, guid: 4c0e13883972d544a909e81f8f3c6f53, type: 3}
   - {fileID: 967519367621784044, guid: 52a1db356ce784d45ab0d868a0792d68, type: 3}
   - {fileID: 967519367621784044, guid: 52a1db356ce784d45ab0d868a0792d68, type: 3}
+  sizeModifier: {x: -0.2, y: -0.2, z: 0}
 --- !u!212 &2095949552732762223
 SpriteRenderer:
   m_ObjectHideFlags: 0

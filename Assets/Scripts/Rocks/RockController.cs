@@ -5,6 +5,9 @@ using UnityEngine;
 public class RockController : MonoBehaviour
 {
     private Rigidbody rb;
+    private float randomScale;
+    private float randomX;
+    private float randomY;
     //public int damage;
     public float damageCooldown = 0.5f;
     public float currentTime;
@@ -14,10 +17,18 @@ public class RockController : MonoBehaviour
     //private int currentHealth = 0;
     public bool isChomping;
     public GameObject[] rocks;
+    private Vector3 sizeModifier;
 
     public void Start()
     {
         rb = GetComponent<Rigidbody>();
+        
+        //SIZE RANDOMIZER
+        randomScale = Random.Range(-0.2f, 0.2f);
+        randomX = randomScale;
+        randomY = randomScale;
+        sizeModifier.Set(randomX, randomY, 0);
+        transform.localScale += sizeModifier;
         //currentHealth = health;
         //rb.AddForce(transform.forward * 100f);
     }
